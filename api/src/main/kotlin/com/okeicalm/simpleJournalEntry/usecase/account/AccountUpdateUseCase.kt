@@ -13,7 +13,7 @@ interface AccountUpdateUseCase {
 }
 
 @Service
-class AccountUpdateUseCaseImpl(private val accountRepository: AccountRepository): AccountUpdateUseCase {
+class AccountUpdateUseCaseImpl(private val accountRepository: AccountRepository) : AccountUpdateUseCase {
     @Transactional
     override fun call(input: AccountUpdateUseCaseInput): AccountUpdateUseCaseOutput {
         val account = Account(
