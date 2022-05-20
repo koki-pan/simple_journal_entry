@@ -17,9 +17,7 @@ class BallCreateUseCaseImpl(private val ballRepository: BallRepository) : BallCr
     @Transactional
     override fun call(input: BallCreateUseCaseInput): BallCreateUseCaseOutput {
         val ball = Ball(
-            name = input.name,
-            size = input.size,
-            price = input.price
+            name = input.name, size = input.size, price = input.price
         )
         val newBallId = ballRepository.create(ball)
         val newBall = ballRepository.findById(newBallId) ?: throw Exception("BallCreateUseCase: Something wrong...")

@@ -17,13 +17,11 @@ class BallUpdateUseCaseImpl(private val ballRepository: BallRepository) : BallUp
     @Transactional
     override fun call(input: BallUpdateUseCaseInput): BallUpdateUseCaseOutput {
         val ball = Ball(
-            name = input.name,
-            size = input.size,
-            price = input.price
+            name = input.name, size = input.size, price = input.price
         )
         ballRepository.update(input.id, ball)
 
-        val updatedBall = ballRepository.findById(input.id) ?: throw Exception("BallingUpdateUseCase: Something wrong...")
+        val updatedBall = ballRepository.findById(input.id) ?: throw Exception("BallUpdateUseCase: Something wrong...")
         return BallUpdateUseCaseOutput(updatedBall)
     }
 }
