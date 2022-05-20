@@ -3,7 +3,7 @@ import org.gradle.kotlin.dsl.flyway
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.7.0-SNAPSHOT"
+    id("org.springframework.boot") version "2.6.6-SNAPSHOT"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     id("com.expediagroup.graphql") version "5.1.0"
     id("nu.studer.jooq") version "6.0.1"
