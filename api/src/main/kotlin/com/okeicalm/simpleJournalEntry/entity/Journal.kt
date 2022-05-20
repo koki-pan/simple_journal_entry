@@ -14,6 +14,5 @@ data class Journal(
         journal.id,
         journal.incurredOn,
         journalEntries?.map { JournalEntry(it) },
-//        null,
     )
 }
