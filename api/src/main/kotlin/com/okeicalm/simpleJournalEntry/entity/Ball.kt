@@ -10,8 +10,8 @@ data class Ball(
 ) {
     constructor(ball: Balls) : this(
         ball.id,
-        ball.code,
         ball.name,
-        ball.elementType,
+        ball.size,
+        ball.price,
     )
 }
