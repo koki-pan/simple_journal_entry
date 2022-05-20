@@ -25,17 +25,17 @@ class BallRepositoryImpl @Autowired constructor(private val dslContext: DSLConte
         return ballPOJO?.let { Ball(it) }
     }
 
-    override fun create(ball: Ball): Long {
+    override fun create(ball: Ball): Ball? {
         dslContext
             .newRecord(Balls.BALLS)
             .setName(ball.name)
             .setSize(ball.size)
             .setPrice(ball.price)
             .store()
-        return dslContext.lastID().toLong()
+        return ball
     }
 
-    override fun update(id: Long, ball: Ball): Long {
+    override fun update(id: Long, ball: Ball): Ball? {
         dslContext
             .update(Balls.BALLS)
             .set(Balls.BALLS.NAME, ball.name)
@@ -43,7 +43,7 @@ class BallRepositoryImpl @Autowired constructor(private val dslContext: DSLConte
             .set(Balls.BALLS.PRICE, ball.price)
             .where(Balls.BALLS.ID.eq(id))
             .execute()
-        return id
+        return ball
     }
 
     override fun delete(id: Long): Long {

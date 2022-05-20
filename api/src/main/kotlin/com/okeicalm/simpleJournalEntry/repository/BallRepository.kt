@@ -7,9 +7,9 @@ interface BallRepository {
 
     fun findById(id: Long): Ball?
 
-    fun create(ball: Ball): Long
+    fun create(ball: Ball): Ball?
 
-    fun update(id: Long, ball: Ball): Long
+    fun update(id: Long, ball: Ball): Ball?
 
     fun delete(id: Long): Long
 }

@@ -19,8 +19,7 @@ class BallCreateUseCaseImpl(private val ballRepository: BallRepository) : BallCr
         val ball = Ball(
             name = input.name, size = input.size, price = input.price
         )
-        val newBallId = ballRepository.create(ball)
-        val newBall = ballRepository.findById(newBallId) ?: throw Exception("BallCreateUseCase: Something wrong...")
+        val newBall = ballRepository.create(ball) ?: throw Exception("BallCreateUseCase: Something wrong...")
         return BallCreateUseCaseOutput(newBall)
     }
 }
